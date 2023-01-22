@@ -1,0 +1,151 @@
+Project Note:
+
+input data: 
+    BalanceSheet (Type), Category (Name), Account (Name), Transaction (Amount) with (Date)
+
+output data: 
+    1 Date: (Current Date), Assets: (Amount), Due: (Amount), Liabilities: (Amount), Total Balance: Amount
+    2 Date: (Current Date), Category: (Amount)
+    3 Date: (Current Date), Account: (Amount)
+    4 Date: (Current Date), Transaction: (Amount)
+
+User View:
+(view 1)
+Today: 01/01/2023                           Today: 01/01/2023                       Today: 01/01/2023
+BalanceSheet                                BalanceSheet                            BalanceSheet
+    (view 2)                                    (view 3)                                (view 3)
+    1: Category                                 Selected Category                       Selected Report           
+    2: Account                                      1: Create                               1: Assets
+    3: Transaction                                  2: Update                               2: Due
+    4: Report                                       3: Delete                               3: Liabilities
+Enter Choice & 'q' to exit: 1                   Enter Choice & 'q' to exit: 1               4: Download BalanceSheet
+                                                                                        Enter Choice & 'q' to exit: 1
+
+Today: 01/01/2023                           Today: 01/01/2023
+BalanceSheet                                BalanceSheet
+    (view 3)                                    (view 3)
+    Selected Account                            Selected Transaction           
+        1: Create                                   1: Create
+        2: Update                                   2: Update
+        3: Delete                                   3: Delete
+    Enter Choice & 'q' to exit: 1               Enter Choice & 'q' to exit: 1
+
+# Creating Items
+Today: 01/01/2023                           Today: 01/01/2023
+BalanceSheet                                BalanceSheet
+    Enter Category Name: HandCash               Enter Account Name: Grameenphone
+    (view 3)                                   "No Category Available" [call category module]
+    Property Type                               (view 3)
+        1: Assets                               Account Category
+        2: Due                                      1: HandCash
+        3: Liabilities                              2: Rechage
+    Select Item: 1                              Select Item: 1
+    Category Create Successful.                 Account Create Successful.
+    Already exit try again.                     Already exit try again.
+
+# Updating Items
+BalanceSheet                                BalanceSheet
+    Account Category                            Account
+        1: HandCash                                 1: Grameenphone
+        2: Recharge                                  2: BanglaLink
+    Select Account Category to Update: 1        Select Account to Update: 1
+                                    
+    Enter New Category Name: HandCash           Enter Account Name: Grameenphone            
+    Property Type                               Account Category
+        1: Assets                                   1: HandCash
+        2: Due                                      2: Agent
+        3: Liabilities                              3: Rechage
+    Select Item: 1                              Select Item: 1
+    Category Update Successful.                 Account Update Successful.
+    Not found try again.                        Not found try again.
+
+# Deleting Items
+BalanceSheet                                BalanceSheet
+    Account Category                            Account
+        1: HandCash                                 1: Grameenphone
+        2: Rechage                                  2: BanglaLink
+    Select Item: 1                              Select Item: 1
+    Do you want to delete this Item (y/n):      Do you want to delete this Item (y/n):
+    Category Delete Successful.                 Account Delete Successful.
+    Not found try again.                        Not found try again.
+
+# Create Transaction
+BalanceSheet                                BalanceSheet
+    Transaction Category                        Enter Transaction Amount: 1000
+        1: HandCash                             Transaction Account
+        2: Rechage                                  1: Grameenphone
+    Select Transaction Category: 1                  2: BanglaLink
+                                                Select Transaction Account: 1
+                                                Transaction Create Successful.
+                                                Not found try again.
+# Update Transaction
+Today: 01/01/2023
+BalanceSheet                                BalanceSheet
+    Transaction Category Amount                 Enter Transaction Amount: 1000
+        1: HandCash      10000                  Transaction Account Amount
+        2: Rechage       10000                      1: Grameenphone 1000
+    Select Transaction Category: 1                  2: BanglaLink   1000
+                                                Select Transaction Account: 1
+                                                Transaction Create Successful.
+                                                Not found try again.
+
+
+Html to pdf link:
+https://pythonguides.com/convert-html-page-to-pdf-using-django/
+https://xhtml2pdf.readthedocs.io/en/latest/
+https://xhtml2pdf.readthedocs.io/en/latest/usage.html
+https://pyfpdf.github.io/fpdf2/Tables.html
+
+A balance sheet is a financial statement that reports a company's assets, liabilities, and shareholders' equity at a specific point in time. Here is a basic database model for a balance sheet:
+
+Table: Assets
+
+AssetID (Primary Key)
+AssetName
+AssetType (e.g. cash, accounts receivable, inventory)
+AssetValue
+Table: Liabilities
+
+LiabilityID (Primary Key)
+LiabilityName
+LiabilityType (e.g. accounts payable, loans, taxes payable)
+LiabilityValue
+Table: Shareholders' Equity
+
+EquityID (Primary Key)
+EquityName
+EquityType (e.g. common stock, retained earnings)
+EquityValue
+Table: Balance Sheet
+
+BalanceSheetID (Primary Key)
+Date (Date and time of balance sheet)
+TotalAssets (calculated by summing all assets)
+TotalLiabilities (calculated by summing all liabilities)
+TotalEquity (calculated by summing all shareholders' equity)
+This is a basic model, you can expand it as per your requirement
+
+
+A daily notes database model can be created using a similar approach to the one outlined above. One possible schema for a daily notes database would include the following tables:
+
+Users: This table would store information about the users who are creating the notes, such as their username and password.
+
+Notes: This table would store the actual notes, with fields for the content of the note, the date it was created, and a foreign key linking it to the user who created it.
+
+Tags: This table would store tags that can be associated with notes, such as "work" or "personal." Each note could have multiple tags associated with it, linked via a many-to-many relationship.
+
+Reminder: This table would store information about any reminders set for the notes, such as the date and time of the reminder and a foreign key linking it to the corresponding note.
+
+An invoice database model can be created using a relational database management system (RDBMS) such as MySQL or PostgreSQL. A possible schema for an invoice database could include the following tables:
+
+Customers: This table would store information about the customers, such as their name, address, and contact information.
+
+Invoices: This table would store the actual invoices, with fields for the invoice number, invoice date, due date, and the total amount due. It also could have a foreign key linking it to the customer who the invoice is for.
+
+Invoice Items: This table would store the items included on the invoice, with fields for the item name, quantity, and unit price. It also could have a foreign key linking it to the corresponding invoice.
+
+Payment: This table would store information about any payments made on the invoice, such as the payment amount, date, and method. It also could have a foreign key linking it to the corresponding invoice.
+
+Once the schema is defined, you can use SQL commands to insert, update, and retrieve data from the tables. Additionally, you can use a programming language such as Python, Java, or C# to interact with the database and create a user interface for creating, editing, and viewing invoices and managing customer and payment information.
+
+Alternatively, you can use a NoSQL database like MongoDB or Firebase. Here, you can store your invoices and customer information as JSON documents and use the database's native driver to interact with the database.
